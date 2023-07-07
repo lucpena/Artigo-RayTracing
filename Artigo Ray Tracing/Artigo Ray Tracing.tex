@@ -249,10 +249,46 @@ ser feita pela placa de vídeo.
 Para que o Ray Tracing pudesse ser implementado em simulações em tempo real,
 como jogos eletrônicos, por exemplo, as fabricantes de placa de vídeo começaram
 a desenvolver técnicas e chipes especiais focados em otimzar os cálculos do Ray 
-Tracing.
+Tracing. As técnicas mais utilitizadas para otimizar o desempenho e tornar possível
+o uso de Path Tracing em tempo real incluem algoritmos de \emph{Upscaling}, que 
+utilizam inteligência artificial para aumentar a resolução da imagem, onde a 
+placa de vídeo renderiza o jogo em uma resolução menor e utiliza este algoritmo
+para aumentar a sua resolução. Outra técnica utilizada e o \emph{Denoising},
+onde utiliza-se o Path Tracing com poucos raios para gerar uma imagem incompleta
+e através da inteligência artificial, gerar uma imagem completa.
 
-\subsection{NVidia}
+\subsection{NVIDIA}
+A NVIDIA foi a primeira empresa a criar uma placa de video com suporte nativo ao
+Ray Tracing. A GeForce RTX 20 series, foram lançadas em setembro de 2018. Essa 
+série de placas de vídeo apresentou uma tecnologia de ray tracing em tempo real 
+chamada de NVIDIA RTX. A RTX 2080 Ti, que era a placa de vídeo mais pontente
+desta série, possui 68 RT Cores, que são os núcleos dedicados ao Ray Tracing.
+Além de um hardware dedicado, a NVIDIA também desenvolveu o DLSS, que significa
+\emph{Deep Learning Super Sampling}, que utiliza inteligência artificial para
+implementar o \emph{Upscaling}. Entretanto, como este era a primeira geração
+de placas de video com componentes dedicados ao Ray Tracing, a maioria dos
+jogos não conseguiam ter um bom desempenho com esta tecnologia funcionando,
+principalmente sem o uso do DLSS. Em 2020, a NVIDIA lançou A GeForce 30
+series, onde sua placa mais potente é a RTX 3090 Ti. Esta apresentou a
+segunda geração de sua RT Cores, possuindo desta vez 84. Também foi apresentado
+o DLSS 2.0, que teve um grande ganho em relação ao primeiro. Nesta etapa,
+já era possível utilizar Ray Tracing em jogos utilizando o DLSS 2.0 e
+adquirir um resultado minimamente satisfatório. Em 2022, foram lançadas as
+NVIDA GeForce RTX 40 series. Até o momento de desenvolvimento deste artigo,
+tem-se a RTX 4090 como a placa mais poderosa da NVIDIA. Esta placa possui
+128 RT Cores, suporte ao novo DLSS 3.0 e à nova tecnologia desenvolvida
+pela NVIDIA para melhorar o desempenho, que é o \emph{Frame Generation}.
+Esta tecnologia cria frames novos entre dois frames, através da inteligência
+artificial previamente treinada. 
 
+Com a geração atual das placas da série 40 e todos estes outros recursos auxiliando
+a renderização, como o DLSS 3.0 e o \emph{Frame Generation}, já é possível ter uma
+experiência com Ray Tracing bastante satisfatória. Entretando, ainda não ha 
+tecnologia o suficiente para que se possa ter um jogo ou simulação em
+tempo real utilizando-se apenas o Ray Tracing. Os jogos que possuem esta
+funcionalidade estão na categoria de renderização híbrida, utilizando a
+rasterização para a maioria das cenas, porém deixando iluminação, sombras e/ou
+reflexos para serem calculados pelo Ray Tracing.
 
 \subsection{AMD}
 
