@@ -145,7 +145,8 @@ traçar vetores dentro de uma cena 3D. Utilizando-se do método do Ray Tracing, 
 temos o Path Tracing, que quer dizer Traçado de Caminho em português. A principal
 diferença para o Ray Tracing convencional, é que o Path Tracing utiliza um modelo
 de distribuição aleatória baseado nas características de Monte Carlo, e que ele gera
-os raios a partir da câmera virtual até que cheguem em alguma fonte de luz. Esta é a 
+os raios a partir da câmera virtual até que cheguem em alguma fonte de luz ou a partir 
+da própria fonte de luz . Esta é a 
 principal abordagem utilizada pela indústria, pois gera a imagem ligeiramente
 mais rápido e é possível utilizar outras técnicas em conjunto do Path Tracing,
 que serão discutidas em outra seção.
@@ -191,9 +192,7 @@ Sua solução exata é bastante custosa, porém utilizando o Path Tracing, é po
 aproximá-la, graças ao modelo Monte Carlo de amostragem.
 
 \subsection{Seu funcionamento}
-O Ray Tracing mesmo não sendo trivial, é possível de se entender como funciona seu
-algoritmo. Primeiro,
-são traçados os chamados Raios Primários da câmera virtual, passando por cada pixel 
+Primeiro, são traçados os chamados Raios Primários da câmera virtual, passando por cada pixel 
 da imagem. São realizadas checagens para verificar se estes raios interceptaram algum 
 objeto na cena.
 Caso afirmativo, são gerados os Raios Secundários a partir do local de intersecção e
@@ -211,7 +210,14 @@ como na vida real? Infelizmente, tentar simular todos os raios de luz saindo de 
 de luz é extremamente custoso e não vale a pena em na maioria dos casos. Com este
 algoritmo do Ray Tracing, pode-se simular somente os feixes de luz que atingem
 a câmera virtual, poupando o processamento de feixes que não irão alterar nada
-na cena. 
+na cena.
+
+No Path Tracing, para que seja gerada a imagem, é necessário que haja a interseção
+do raio com algum artefato na cena. Quando há a interseção, é necessário realizar
+o seu cálculo. Como mencionado anteriormente, utiliza-se o cálculo de interseção
+com o triângulo para gerar a imagem. Neste artigo e na maioria dos tutoriais
+de como construir um Ray Tracer, será usada a esfera como objeto da cena, pois
+seu cálculo de interseção com a reta é simples.
 
 
 \subsection{Métodos de Iluminação e Modelos de Materiais}
@@ -235,15 +241,67 @@ A intensidade deste componente depende do ângulo entre a direção da luz refle
 direção da câmera. Utiliza-se este componente para representar destaques brilhosos em
 objetos.
 
-\section{Seu uso na atualidade}
-Atualmente, o Ray Tracing é bastante utilizado na media do entretenimento. Muito se 
+\subsection{Seu uso na mídia de entretenimento}
+Atualmente, o Ray Tracing é bastante utilizado na mídia do entretenimento. Muito se 
 fala do Ray Tracing em jogos no momento, mas ele também está presente no cinema, em
-efeitos especiais ou filmes feitos inteiramente em animação.
+efeitos especiais ou filmes feitos inteiramente em animação. A princípio, utilizava-se
+a rasterização para a criação de efeitos e modelos, porém, com o tempo, houve uma 
+transição para o uso do Ray Tracing. Esta adaptação ocorreu em duas
+etapas. Na primeira, utilizou-se de modelos híbridos com rasterização de micro-polígonos
+e iluminação colocada manualmente para representar quiques de luz refletidas na maioria
+dos modelos e Ray Tracing padrão para reflexos e algumas sombras. Este estilo foi utilizado
+no filme \emph{"Vida de Insetos" (1998)}. A segunda etapa foi a transição para o Path
+Tracing completo, como em \emph{"Tá chovendo Hamburguer" (2009)}.
+\cite{c3} \cite{c1}
+
+O filme \emph{"Carros" (2006)} utilizou a tecnologia do Ray Tracing em sua produção.
+Os diretores decidiram usá-lo para poderem alcançar resultados realistas com reflexos,
+sombras e Oclusão de Ambiente. Na indústria do cinema, o Ray Tracing possui algumas
+dificuldades, como uma cena ser grande demais para caber em memória, ter milhares
+de texturas que também não irão caber todas em memória e milhares de pontos de iluminação
+por exemplo. Por isso foi utilizada uma abordagem híbrida com Ray Tracing e a metodologia
+REYES, que foi criada pela Pixar.
+\cite{c9}
+
+\subsection{Trabalhos Correlatos}
+A seguir, serão apresentados trabalhos correlatos à este artigo. Estes trabalhos
+são recomendações para uma leitura futura, onde o leitor deseja buscar mais
+conhecimento sobre este tópico. Estes trabalhos também foram de suma importância
+para este artigo, sendo que um deles será usado como base para ensinar o
+funcionamento de um Ray Tracer simples e uma breve análise de performance.
+
+Existem outros trabalhos que possuem um objetivo semelhante a este artigo, como o
+\emph{"Ray Tracing in One Weekend"} \cite{Shirley2020RTW1} de Peter Shirley (NVidia),
+um dos maiores nomes na área atualmente, principalmente em relação à ensinar princípios
+de Ray Tracing pela sua trilogia de livros citada anteriormente. Diferente deste artigo,
+o trabalho de Peter Shirley é dividido em três partes e busca ensinar desde o começo 
+até técnicas mais avançadas de otimização e efeitos especiais. Este artigo busca
+dar uma visão geral e dar uma introdução ao desenvolvimento do Ray Tracing.
+
+O artigo \emph{"smallpt: Global Illumination in 99 lines of C++"} \cite{c13} demonstra 
+um Path Tracer que realiza Iluminação Global em apenas 99 linhas de código. Como o 
+objetivo era criar um código enxuto, ele acaba sendo um pouco difícil de acompanhar,
+porém há várias contribuições da comunidade listada no fim do site, e uma delas é
+uma apresentação explicando como funciona o código e o que cada linha faz. Este artigo
+mencionado busca criar um Path Tracer com o menor código possível, omitindo algumas
+coisas e tornando o código menos legível e mais difícil de compreender. Neste artigo
+busca-se demonstrar o funcionamento de um Ray Tracer da maneira mais educativa possível,
+tentando ao máximo explicar tudo que foi realizado.
+
+Neste artigo, será demonstrado como criar um Ray Tracer usando o artigo 
+\emph{"Understandable RayTracing in 256 lines of bare C++"}\cite{c14} como referência.
+Este artigo demonstra de maneira sucinta e direta como criar um Ray Tracer,
+além de trechos de código e o código completo. Depois de demonstrado como
+criar seu renderizador, serão realizados testes de desempenho para que
+possamos entender melhor quais os fatores mais influenciam na performance
+deste algoritmo. Este projeto será executado no processador, em uma
+só thread.
 
 \section{Avanços nas técnicas para Ray Tracing em tempo real}
 
 \section{Definição Técnica}
 
+%Study Settings
 \section{Como criar o seu Ray Tracer}
 
 \subsection{Outros trabalhos}
@@ -255,8 +313,6 @@ efeitos especiais ou filmes feitos inteiramente em animação.
 
 \bibliographystyle{IEEEtran}
 \bibliography{bibtex/bib/reference}
-
-
 
 % that's all folks
 \end{document}
