@@ -12,7 +12,7 @@
 
 \begin{document}
 
-\title{Introdução ao Ray Tracing}
+\title{Introdução ao Ray Tracing e análise do \emph{"Ray Tracing in One Weekend"} de Peter Shirley}
 
 \author{ Lucas Araújo Pena \\ 
          13/0056162 }
@@ -20,7 +20,7 @@
 % The paper headers
 \markboth{Departamento de Ciência da Computação - 
 Universidade de Brasília}%
-{Shell \MakeLowercase{\textit{et al.}}: Introdução ao Ray Tracing}
+{Shell \MakeLowercase{\textit{et al.}}: Introdução ao Ray Tracing e um estudo sobre o Ray Tracing in One Weekend de Peter Shirley}
 
 \maketitle
 
@@ -270,13 +270,11 @@ conhecimento sobre este tópico. Estes trabalhos também foram de suma importân
 para este artigo, sendo que um deles será usado como base para ensinar o
 funcionamento de um Ray Tracer simples e uma breve análise de performance.
 
-Existem outros trabalhos que possuem um objetivo semelhante a este artigo, como o
-\emph{"Ray Tracing in One Weekend"} \cite{Shirley2020RTW1} de Peter Shirley (NVidia),
-um dos maiores nomes na área atualmente, principalmente em relação à ensinar princípios
-de Ray Tracing pela sua trilogia de livros citada anteriormente. Diferente deste artigo,
-o trabalho de Peter Shirley é dividido em três partes e busca ensinar desde o começo 
-até técnicas mais avançadas de otimização e efeitos especiais. Este artigo busca
-dar uma visão geral e dar uma introdução ao desenvolvimento do Ray Tracing.
+O artigo
+\emph{"Understandable RayTracing in 256 lines of bare C++"}\cite{c14} postado no GitHub,
+ensina o básico de um Ray Tracer utilizando esferas como formas básicas do materias
+na cena, e demonstra o funcionamento de sombras, reflexos e refrações. Além de imagens
+demonstrativas e descrições sucintas, o código está completo no GitHub junto ao artigo.
 
 O artigo \emph{"smallpt: Global Illumination in 99 lines of C++"} \cite{c13} demonstra 
 um Path Tracer que realiza Iluminação Global em apenas 99 linhas de código. Como o 
@@ -288,14 +286,13 @@ coisas e tornando o código menos legível e mais difícil de compreender. Neste
 busca-se demonstrar o funcionamento de um Ray Tracer da maneira mais educativa possível,
 tentando ao máximo explicar tudo que foi realizado.
 
-Neste artigo, será demonstrado como criar um Ray Tracer usando o artigo 
-\emph{"Understandable RayTracing in 256 lines of bare C++"}\cite{c14} como referência.
-Este artigo demonstra de maneira sucinta e direta como criar um Ray Tracer,
-além de trechos de código e o código completo. Depois de demonstrado como
-criar seu renderizador, serão realizados testes de desempenho para que
-possamos entender melhor quais os fatores mais influenciam na performance
-deste algoritmo. Este projeto será executado no processador, em uma
-só thread.
+Já o material mais recomendado pela comunidade para o início da aprendizagem de Ray Tracing
+é o \emph{"Ray Tracing in One Weekend"} \cite{Shirley2020RTW1} de Peter Shirley (NVidia).
+Peter é um cientista da computação e pesquisador de computação gráfica que é referência
+na área por suas inúmeras contribuições\cite{shirley-curriculum}, além desta trilogia.
+Este livro apresenta uma abordagem passo a passo para ensinar os fundamentos do Ray Tracing
+por meio da implementação de um renderizador simples. Neste artigo, serão abordados
+os principais tópicos cobertos pelo primeiro livro.
 
 \section{Avanços tecnológicos para o Ray Tracing}
 Com a evolução das placas de vídeo e processadores, foi ficando cada vez mais
@@ -305,8 +302,8 @@ ser feita pela placa de vídeo.
 
 Para que o Ray Tracing pudesse ser implementado em simulações em tempo real,
 como jogos eletrônicos, por exemplo, as fabricantes de placa de vídeo começaram
-a desenvolver técnicas e chipes especiais focados em otimzar os cálculos do Ray 
-Tracing. As técnicas mais utilitizadas para otimizar o desempenho e tornar possível
+a desenvolver técnicas e chips especiais focados em otimizar os cálculos do Ray 
+Tracing. As técnicas mais utilizadas para otimizar o desempenho e tornar possível
 o uso de Path Tracing em tempo real incluem algoritmos de \emph{Upscaling}, que 
 utilizam inteligência artificial para aumentar a resolução da imagem, onde a 
 placa de vídeo renderiza o jogo em uma resolução menor e utiliza este algoritmo
@@ -339,8 +336,8 @@ Esta tecnologia cria frames novos entre dois frames, através da inteligência
 artificial previamente treinada. 
 
 Com a geração atual das placas da série 40 e todos estes outros recursos auxiliando
-a renderização, como o DLSS 3.0 e o \emph{Frame Generation}, já é possível ter uma
-experiência com Ray Tracing bastante satisfatória. Entretando, ainda não ha 
+a renderização, como o DLSS 3.0 e o \emph{Frame Generation} \cite{c15}, já é possível
+ter uma experiência com Ray Tracing bastante satisfatória. Entretando, ainda não ha 
 tecnologia o suficiente para que se possa ter um jogo ou simulação em
 tempo real utilizando-se apenas o Ray Tracing. Os jogos que possuem esta
 funcionalidade estão na categoria de renderização híbrida, utilizando a
@@ -348,7 +345,12 @@ rasterização para a maioria das cenas, porém deixando iluminação, sombras e
 reflexos para serem calculados pelo Ray Tracing.
 
 \subsection{AMD}
+As placas da NVidia foram as primeiras a possuirem o suporte ao Ray Tracing. A AMD
+ficou uma geração atrás de sua concorrente por este motivo. Porém, a AMD se prontificou
+a adicionar o suporte ao Ray Tracing em sua próxima geração da placas de vídeo.
 
+Para concorrer com a tecnologia RTX de sua concorrente, a AMD adicionou o suporte em sua
+arquitetura já existente RDNA, porém em sua segunda versão, o RDNA 2.
 
 \subsection{Intel}
 
@@ -359,7 +361,7 @@ reflexos para serem calculados pelo Ray Tracing.
 \section{Definição Técnica}
 
 %Study Settings
-\section{Como criar o seu Ray Tracer}
+\section{Analisando o Ray Tracing in one Weekend}
 
 % Study Results
 \section{Resultados de estudo}
