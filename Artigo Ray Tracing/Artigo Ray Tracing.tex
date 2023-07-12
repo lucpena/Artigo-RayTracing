@@ -7,6 +7,8 @@
 \usepackage[pdftex]{graphicx}
 \usepackage{amsmath}
 \usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{hyperref}
 
 \hyphenation{op-tical net-works semi-conduc-tor}
 
@@ -27,15 +29,17 @@ Universidade de Brasília}%
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id nisl eros. 
-Phasellus eleifend nunc mi, nec rutrum purus lacinia sit amet. Vivamus eu 
-tellus dui. Quisque fringilla nibh nec leo pretium eleifend. Nullam et mi in 
-tortor laoreet viverra sit amet id ligula. Etiam vel mi a quam fringilla 
-aliquam. Nulla facilisis pellentesque odio, sit amet iaculis arcu porta 
-eget. Nunc ut tempor enim. In sit amet rhoncus metus. Sed euismod vulputate 
-nulla non rutrum. Proin nisl est, blandit accumsan malesuada vel, pharetra a 
-quam. Nam mollis nunc nisl, in ornare mi hendrerit id. Nullam posuere est 
-ipsum, ac commodo neque ultrices at.
+  \textcolor{red}{
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id nisl eros. 
+    Phasellus eleifend nunc mi, nec rutrum purus lacinia sit amet. Vivamus eu 
+    tellus dui. Quisque fringilla nibh nec leo pretium eleifend. Nullam et mi in 
+    tortor laoreet viverra sit amet id ligula. Etiam vel mi a quam fringilla 
+    aliquam. Nulla facilisis pellentesque odio, sit amet iaculis arcu porta 
+    eget. Nunc ut tempor enim. In sit amet rhoncus metus. Sed euismod vulputate 
+    nulla non rutrum. Proin nisl est, blandit accumsan malesuada vel, pharetra a 
+    quam. Nam mollis nunc nisl, in ornare mi hendrerit id. Nullam posuere est 
+    ipsum, ac commodo neque ultrices at.
+  }
 \end{abstract}
 
 
@@ -61,6 +65,7 @@ implementação, para que se possa ter uma ideia das complexidades envolvidas em
 seu algoritmo.
 
 %TODO 
+\textcolor{red}{\textbf{<FALTA> Achados da pesquisa}}
 % Achados da pesquisa
 
 \section{Background}
@@ -263,7 +268,7 @@ por exemplo. Por isso foi utilizada uma abordagem híbrida com Ray Tracing e a m
 REYES, que foi criada pela Pixar.
 \cite{c9}
 
-\begin{figure}[!t]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=2.5in]{media/carros.png}
   % \includegraphics[width=\linewidth]{media/carros.png}
@@ -283,7 +288,7 @@ funcionamento de um Ray Tracer simples e uma breve análise de performance.
 
 O artigo
 \emph{"Understandable RayTracing in 256 lines of bare C++"}\cite{c14} postado no GitHub,
-ensina o básico de um Ray Tracer utilizando esferas como formas básicas do materias
+ensina o básico de um Ray Tracer utilizando esferas como formas básicas de materiais
 na cena, e demonstra o funcionamento de sombras, reflexos e refrações. Além de imagens
 demonstrativas e descrições sucintas, o código está completo no GitHub junto ao artigo.
 
@@ -356,7 +361,7 @@ funcionalidade estão na categoria de renderização híbrida, utilizando a
 rasterização para a maioria das cenas, porém deixando iluminação, sombras e/ou
 reflexos para serem calculados pelo Ray Tracing.
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=2.5in]{media/rtx4090.jpg}
   % \includegraphics[width=\linewidth]{media/carros.png}
@@ -393,7 +398,7 @@ O \emph{FSR} possui as configurações: \emph{Ultra Quality, Quality, Balanced, 
 Ultra Performance}. Este tipo de otimização é primordial para que um jogo com Ray Tracing
 ativado possa ter um desempenho aceitável.
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=2.5in]{media/rx7900xtx.png}
   % where an .eps filename suffix will be assumed under latex, 
@@ -407,7 +412,7 @@ ativado possa ter um desempenho aceitável.
 A NVidia, no momento, possui uma vantagem sobre a AMD tratando-se de desempenho de jogos
 ou aplicações que utilizem Ray Tracing, principalmente se esta aplicação possui suporte
 às técnicas de performance da NVidia como o \emph{DLSS} e o mais recente \emph{Frame
-Gerneration}. Entretanto, as placas de vídeo da AMD vêm apresentando um ótimo desempenho
+Generation}. Entretanto, as placas de vídeo da AMD vêm apresentando um ótimo desempenho
 na rasterização, que é a técnica padrão usada pelos jogos para renderizar uma cena. Outros
 fatores que ajudam a AMD, são que os preços das placas de vídeo da AMD costumam ser mais
 acessíveis ao público, que se tornou mais evidente nesta última geração de placas de vídeo.
@@ -453,7 +458,7 @@ problemas foram resolvidos, como o péssimo suporte a versões anteriores do Dir
 API utilizada para a criação de jogos atuais. Seu preço também foi diminuído, o que a torna
 ainda mais competitiva no mercado.
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \centering
   \includegraphics[width=2.5in]{media/a770.png}
   % where an .eps filename suffix will be assumed under latex, 
@@ -464,7 +469,8 @@ ainda mais competitiva no mercado.
 \end{figure}
 
 
-\subsection{Consoles}
+\subsection{\textcolor{red}{\textbf{Consoles <TERMINAR>}}}
+% \subsection{Consoles}
 A nova geração de consoles também apresenta hardware dedicado ao processamento de Ray Tracing.
 Tanto o Xbox Series S e X da Microsoft, quanto o PlayStation 5 da Sony, utilizam uma placa de
 vídeo dedicada moderna com a capacidade de renderizar com a aceleração de hardware. Os três 
@@ -472,21 +478,20 @@ consoles previamente citados possuem um processador gráfico feito pela AMD. O X
 que é o mais potente dos Xbox, e o PlayStation 5 possuem uma placa de vídeo bastante similar.
 
 
-\subsection{Outras}
+\subsection{\textcolor{red}{\textbf{Outras <TERMINAR>}}}
+% \subsection{Outras}
 Com o rápido avanço na tecnologia, já existem chips gráficos para celulares que possuem suporte
 ao Ray Tracing.
 
 
 %Study Settings
-\section{Analisando o Ray Tracing in one Weekend}
+\section{Análise do \emph{Ray Tracing in one Weekend}}
 Nessa seção, será discutido o livro \emph{"Ray Tracing in One Weekend"} de Peter Shirley. 
 \cite{Shirley2020RTW1} Será realizada um breve resumo do que cada capítulo do primeiro
 livro da trilogia relata. Ao final, será realizado um teste para mensurar a performance
-do programa. Com isto, pode-se ter uma noção do que cada seção do livro trata. O autor
-encoraja o leitor a escolher outra linguagem que não seja a que ele usa no livro, que no
-caso é o C++, para que o aprendizado seja maior. A análise será feita no código completo
-que está disponível no GitHub \cite{RayTracinOneWeekend-GitHub}, porém, como o código
-pode ser alterado a qualquer momento, foi criado um repositório no GitHub 
+do programa. Com isto, pode-se ter uma noção do que cada seção do livro trata. A análise 
+será feita no código completo que está disponível no GitHub \cite{RayTracinOneWeekend-GitHub}, 
+porém, como o código pode ser alterado a qualquer momento, foi criado um repositório no GitHub 
 \cite{RayTracinOneWeekend-Artigo} com um fork
 do original, onde a versão utilizada neste artigo estará intacta, e as alterações
 realizadas para realizar os testes e os programas utilizados para criar os gráficos
@@ -494,8 +499,177 @@ também estão presentes, para que o leitor possa reproduzir estes testes de man
 mais simples possível. Os comandos utilizados e como rodar o projeto também se 
 encontra no README do projeto.
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=2.5in]{media/rtiow-final.jpg}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Imagem final gerada do Ray Tracing in One Weekend.}
+  \label{img_rtiow_final}
+\end{figure}
+
+\subsection*{Capítulo 1: \emph{Overview}}
+Neste capítulo, o autor fornece o background do livro e o que o motivou a fazê-lo. 
+Também dá uma ideia geral do que será feito e recomendações para o leitor. Uma nota
+interessante que o autor faz que cabe neste artigo: "Ray Tracing pode ser qualquer coisa,
+o que irei ensinar é tecnicamente um Path Tracer". É citado o conhecimento prévio que o
+autor espera que o leitor tenha, porém é possível acompanhar todo o processo mesmo que
+o conhecimento sobre estes tópicos sejam básicos. O livro é lecionado totalmente em C++.
+
+\subsection*{Capítulo 2: \emph{Output an Image}}
+O foco aqui é demonstrar ao leitor como será gerada a saída do programa. A imagem gerada
+pelo Ray Tracer será salva em um formato PPM. O Windows, por exemplo, não possui suporte
+nativo a este tipo de formato, o que pode ser um pouco inconveniente. Entretanto, é possível
+visualizar este formato de imagem direto da internet através de um site, como o \emph{PPM Viewer}
+\cite{PPMviewer}. Mas vale ressaltar que o formato PPM possui um formato simples, que ajuda
+na criação de imagens. O autor também sugere o uso da biblioteca \emph{stb\textunderscore image.h}
+\cite{stb-rep} caso o leitor queira produzir outros tipos de formatos de imagem, porém fica a
+escolha do leitor, pois não é demonstrado como utilizar esta biblioteca. Neste capítulo, é
+demonstrado como inserir uma barra de progresso no seu programa.
+
+\subsection*{Capítulo 3: \emph{The vec3 Class}}
+Operações com vetores estão presente em praticamente qualquer aplicação que envolva gráficos em 3D,
+principalmente produto escalar e produto vetorial. Neste capítulo, é fornecido o arquivo de 
+cabeçalho contento todas as funções de utilidade em vetores que são utilizadas. Também é demonstrado
+como será escrito a cor obtida do arquivo de saída.
+
+\subsection*{Capítulo 4: \emph{Rays, a Simple Camera, and Background}}
+Como o título sugere, esta parte é dedicada à demonstração de como a classe Raio será definida e
+como funciona. Logo após, o autor adiciona esta classe ao projeto e define uma câmera simples.
+Com estas duas estruturas definidas, já
+é possível traças os raios na cena. Define-se a cor que será retornada caso o raio traçado não
+atinja nenhuma entidade na cena, que neste caso representa o céu com um gradiente em azul, e é testado
+o resultado. Deve-se obter uma imagem contendo o gradiente definido anteriormente, devido ao fato
+da cena ainda não conter nenhum objeto.
+
+\subsection*{Capítulo 5: \emph{Adding a Sphere}}
+Ao final deste capítulo, será possível adicionar o primeiro objeto à cena: uma esfera. A escolha da esfera
+tem uma rasão. A equação de interseção da reta com a esfera é bem direta, o que reduz a complexidade do
+programa. Após o autor demonstrar como a matemática funciona, fornece ao leitos o trecho de código equivalente
+às funções demonstradas. Após a definição da função de interseção e da adição de uma esfera na cena, obtêm-se
+uma imagem contendo uma esfera no meio. Nota-se que a esfera não tem aparência de um objeto 3D. Isto se deve
+ao fato que ainda não foi implementado a iluminação, que é o principal fator que nos dá a impressão da cena 
+em que estamos vendo é uma representação de três dimensões.
+
+\subsection*{Capítulo 6: \emph{Surface Normals and Multiple Objects}}
+Nesta seção, o autor aborda a importância das normais de superfície na renderização realista. Primeiro é
+explicado o conceito de normal, que são vetores perpendiculares às superfícies do objeto. As normais 
+desempenham um papel crucial na determinação das interações da luz com os objetos, pois são elas que
+determinam a cor que o objeto terá, definindo seu material. Demonstra-se uma função para retornar a normal
+do objeto atingido pelo raio traçado. Este capítulo também aborda a criação de uma lista de objetos para
+serem adicionados na cena, através de uma estrutura de dados. Uma função para determinar qual foi o
+hit mais próximo também implementada, pois será de ajuda quando há mais de um objeto na trajetória do raio.
+Ao final, após adicionar outra esfera para representar o chão, traça-se os raios e gera-se uma imagem final.
+Com uma função definida previamente neste capítulo que determina a cor do objeto de acordo com sua normal,
+tem-se agora uma bola colorida que já é possível perceber que trata-se de um objeto em três dimensões.
+
+\subsection*{Capítulo 7: \emph{Antialiasing}}
+Observa-se que a imagem gerada não apresenta uma esfera perfeitamente redonda, é possível notar um serrilhado
+em seu contorno. Para resolver este artefato, utiliza-se alguma das técnicas de Antialiasing. Este problema
+ocorre pois neste caso tem-se uma amostragem discreta, onde há somente uma amostragem por pixel para definir
+sua cor. Neste Path Tracer, o problema será solucionado traçando mais de um raio por pixel para que a cor
+definida por este pixel seja mais precisa, fazendo uma média das cores obtidas pelos raios. O autor também
+demostra uma função para gerar números aleatório que será útil para o programa. Após as alterações no programa
+e na câmera, tem-se a imagem final da esfera com suas bordas suavizadas.
+
+\subsection*{Capítulo 8: \emph{Diffuse Materials}}
+Este capítulo discute a diferença entre a geometria dos objetos e seus materiais. O autor questiona se é
+mais adequado ter uma separação entre estes objetos ou se seria melhor mantê-los relacionados. A opção
+escolhida é mantê-los separados, como é feito na maioria dos renderizadores, porém ressalta que há 
+limitações com esta escolha. Ele apresenta o conceito de um material difuso, que são objetos que não
+emitem luz, mas adquirem a cor do ambiente ao seu redor. Este objeto reflete os raios de luz de maneira
+aleatória. Em seguida, é definido uma profundidade máxima para os raios, pois caso eles não demorem
+muito para pararem de refletir, é possível que a pilha da memória seja estourada. Logo após, o autor 
+introduz ao conceito da correção gama para garantir a intensidade da cor precisa antes que a imagem seja
+armazenada. O autor também demonstra uma maneira de resolver um problema e melhorar a sombra gerada pela
+esfera. Ao final, Peter apresenta o método da dispersão hemisférica, que é um método alternativo de 
+representar objetos difusos.
+
+\subsection*{Capítulo 9: \emph{Metal}}
+Este capítulo introduz o conceito de materiais metálicos, que possuem uma fator alto de reflexão. O fato
+destes materiais terem uma propriedade de reflexão especulas o difere dos outros. O material metálico
+irá refletir a luz de maneira ordenada e precisa, criando reflexões nítidas e brilhantes. O autor demonstra
+o funcionamento deste tipo de material e o adiciona ao código principal.
+
+\subsection*{Capítulo 10: \emph{Dielectrics}}
+Materiais dielétricos são materiais como a água, vidro e diamantes. Este tipo de material é um dos materiais
+que o Ray Tracing é capaz de renderizar de maneira mais realista, que o difere de outros métodos de renderização.
+A refração pode ser adquirida através da lei de Snell, que descreve o comportamento de um raio sendo refratado.
+Outro desafio é retratar o raio que está sendo refletido dentro do corpo dielétrico, que é chamada de refração
+interna total. O autor trata deste problema e demonstra formas de resolvê-lo. Para o vidro, tem-se a equação
+de aproximação de Schlick, que modela a variação do reflectividade do vidro de acordo com o ângulo de incidência.
+Ao final, uma esfera com refração é adicionada à cena, junto de outra metálica.
+
+\subsection*{Capítulo 11: \emph{Positionable Camera}}
+Neste capítulo, o autor foca em dar mais funcionalidade para a câmera, onde é possível alterar sua posição,
+sua orientação e seu ângulo de visão. Com isso é possível gerar cenas a partir de pontos de visão diferentes
+e com aproximações diferentes, através da alteração do ângulo de visão.
+
+\subsection*{Capítulo 12: \emph{Defocus Blur}}
+Um dos efeitos utilizados para simular a visão humana ou de câmeras focais é a profundidade de campo, onde
+um objeto em foco fica nítido e o fundo fica fora de foco. Isso ocorre devido ao fato das câmeras possuírem
+um orifício para a entrada da luz, que acaba gerando o desfoque. Para corrigir isso, usa-se lentes angulares.
+Para gerar o efeito final que será adicionado ao Path Tracer, o autor implementa uma aproximação do que seria
+uma lente fina, que é a mais utilizada em computação gráfica para este efeito. Ajustando a distância do foco
+e a abertura da lente é possível ajustar o efeito.
+
+\subsection*{Capítulo 13: \emph{Where Next?}}
+Esta seção são as considerações finais do autor. Ele demonstra como reproduzir a imagem da capa do livro, que
+está representada pela figura \ref{img_rtiow_final}, e sugere trabalhos futuros como implementar luz, adicionar
+a equação de interseção de triângulos, já que quase todos os modelos 3D hoje em dia são baseados em triângulos,
+adicionar texturas, adicionar modelos com volume e implementar este programa utilizando paralelismo.
+
+\section{Analisando o Ray Tracing in One Weekend}
+Ao chegar ao final da implementação deste Path Tracer, pode-se ter o questionamento de como a performance
+deste programa se comporta, pois a cada capítulo, nota-se que a imagem final leva cada mais mais tempo para
+que seja finalizada. Ao alterar os parâmetros do renderizador para testar a função de cada uma e para gerar
+uma imagem que seja agradável ao leitor, também percebe-se que a imagem final demora cada vez mais. A seguir,
+será apresentado testes realizados para que fosse possível ter uma ideia de como cada parâmetro que é alterado
+no Path Tracer irá influenciar em sua performance geral.
+
 % Study Results
-\section{Resultados de estudo}
+\subsection{Configurações de estudo}
+Este teste baseia-se em executar o código fonte do Path Tracer várias vezes, onde foi alterado somente o 
+parâmetro que está sendo estudado. O código fonte do livro encontra-se no GitHub \cite{RayTracinOneWeekend-GitHub},
+porém, o código está aberto para a comunidade e vários usuários já contribuíram para o código final. Para
+que fosse mantida a reprodutibilidade deste estudo, foi criado um fork do código fonte no momento do
+desenvolvimento deste artigo \cite{RayTracinOneWeekend-Artigo}.
+
+Os testes foram feitos alterando o código fonte original em C++, criando um laço \emph{for} para que o programa
+fosse executado várias vezes com valores incrementais para o parâmetro escolhido, enquanto os outros
+permaneceram inalterados. No final, o programa gera um arquivo texto contendo o tempo da execução e os
+parâmetros utilizados naquela execução. Um outro programa em Python3 lê este arquivo e cria um gráfico.
+
+Estes testes foram realizados em dois computadores diferentes, o primeiro possui a seguinte configuração, sendo
+um computador de mesa:
+
+\begin{itemize}
+  \item Processador: AMD Ryzen 5 3600X
+  \item Memória RAM: 16 GB, 2400 MHz DDR4
+  \item Armazenamento: SSD NVMe
+  \item Sistema Operacional: Linux Mint (Ubuntu)
+\end{itemize}
+
+O outro computador usado para os testes é um notebook com configurações inferiores, representadas a seguir:
+
+\begin{itemize}
+  \item Processador: Intel Core i5 Segunda Geração
+  \item Memória RAM: 8 GB, 2400 MHz DDR4
+  \item Armazenamento: SSD 
+  \item Sistema Operacional: Linux Mint (Ubuntu)
+\end{itemize}
+
+% \subsection*{Objetivos de pesquisa}
+% \subsection*{Questões de pesquisa}
+% \subsection*{Métodos de pesquisa}
+% \subsection*{Coletando Dados}
+
+\subsection{Resultados de Pesquisa}
+
+\subsection*{Discussões}
+\subsection*{Limitações}
+
 
 \section{Conclusão}
 
