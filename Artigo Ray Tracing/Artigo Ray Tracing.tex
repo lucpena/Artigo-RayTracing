@@ -251,7 +251,7 @@ etapas. Na primeira, utilizou-se de modelos híbridos com rasterização de micr
 e iluminação colocada manualmente para representar quiques de luz refletidas na maioria
 dos modelos e Ray Tracing padrão para reflexos e algumas sombras. Este estilo foi utilizado
 no filme \emph{"Vida de Insetos" (1998)}. A segunda etapa foi a transição para o Path
-Tracing completo, como em \emph{"Tá chovendo Hamburguer" (2009)}.
+Tracing completo, como em \emph{"Tá chovendo Hambúrguer" (2009)}.
 \cite{c3} \cite{c1}
 
 O filme \emph{"Carros" (2006)} utilizou a tecnologia do Ray Tracing em sua produção.
@@ -262,6 +262,17 @@ de texturas que também não irão caber todas em memória e milhares de pontos 
 por exemplo. Por isso foi utilizada uma abordagem híbrida com Ray Tracing e a metodologia
 REYES, que foi criada pela Pixar.
 \cite{c9}
+
+\begin{figure}[!t]
+  \centering
+  \includegraphics[width=2.5in]{media/carros.png}
+  % \includegraphics[width=\linewidth]{media/carros.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Imagem com todo o elenco principal de Carros. É possível perceber reflexos, sombras e oclusão de ambiente. \cite{c9}}
+  \label{img_carros}
+\end{figure}
 
 \subsection{Trabalhos Correlatos}
 A seguir, serão apresentados trabalhos correlatos à este artigo. Estes trabalhos
@@ -312,6 +323,7 @@ onde utiliza-se o Path Tracing com poucos raios para gerar uma imagem incompleta
 e através da inteligência artificial, gerar uma imagem completa.
 
 \subsection{NVIDIA}
+
 A NVIDIA foi a primeira empresa a criar uma placa de video com suporte nativo ao
 Ray Tracing. A GeForce RTX 20 series, foram lançadas em setembro de 2018. Essa 
 série de placas de vídeo apresentou uma tecnologia de ray tracing em tempo real 
@@ -337,15 +349,27 @@ artificial previamente treinada.
 
 Com a geração atual das placas da série 40 e todos estes outros recursos auxiliando
 a renderização, como o DLSS 3.0 e o \emph{Frame Generation} \cite{c15}, já é possível
-ter uma experiência com Ray Tracing bastante satisfatória. Entretando, ainda não ha 
+ter uma experiência com Ray Tracing bastante satisfatória. Entretanto, ainda não ha 
 tecnologia o suficiente para que se possa ter um jogo ou simulação em
 tempo real utilizando-se apenas o Ray Tracing. Os jogos que possuem esta
 funcionalidade estão na categoria de renderização híbrida, utilizando a
 rasterização para a maioria das cenas, porém deixando iluminação, sombras e/ou
 reflexos para serem calculados pelo Ray Tracing.
 
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=2.5in]{media/rtx4090.jpg}
+  % \includegraphics[width=\linewidth]{media/carros.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{A placa de vídeo RTX 4090 da NVIDIA. Modelo de referência.}
+  \label{img_rtx4090}
+\end{figure}
+
+
 \subsection{AMD}
-As placas da NVidia foram as primeiras a possuirem o suporte ao Ray Tracing. A AMD
+As placas da NVidia foram as primeiras a possuírem o suporte ao Ray Tracing. A AMD
 ficou uma geração atrás de sua concorrente por este motivo. Porém, a AMD se prontificou
 a adicionar o suporte ao Ray Tracing em sua próxima geração da placas de vídeo.
 
@@ -357,7 +381,7 @@ cálculos relacionados ao Ray Tracing. Em 2022, a AMD anunciou a arquitetura RDN
 suas novas placas de vídeo da série RX 7000. Durante o desenvolvimento deste artigo,
 tem-se que a placa mais potente da AMD é a RX 7900 XTX, possuindo 96 Ray Accelerators.
 
-A AMD também posui tecnologias que auxiliam na renderização, tanto na rasterização comum,
+A AMD também possui tecnologias que auxiliam na renderização, tanto na rasterização comum,
 quanto no uso do Ray Tracing, o \emph{FidelityFX Super Resolution}, ou como é mais conhecido,
 \emph{FSR}. Esta tecnologia funciona de maneira semelhante ao \emph{DLSS} da NVidia, renderizando
 o jogo em uma resolução e utilizando técnicas de inteligência artificial para criar uma imagem
@@ -368,6 +392,16 @@ irão priorizar a performance ou a qualidade de imagem, onde o usuário escolhe 
 O \emph{FSR} possui as configurações: \emph{Ultra Quality, Quality, Balanced, Performance e
 Ultra Performance}. Este tipo de otimização é primordial para que um jogo com Ray Tracing
 ativado possa ter um desempenho aceitável.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=2.5in]{media/rx7900xtx.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{A placa de vídeo Radeon RX 7900 XTX da AMD. Modelo de referência.}
+  \label{img_rx7900xtx}
+\end{figure}
 
 \subsection{NVIDIA x AMD}
 A NVidia, no momento, possui uma vantagem sobre a AMD tratando-se de desempenho de jogos
@@ -385,18 +419,80 @@ performance, gastando menos do que iria gastar com a concorrência.
 
 
 \subsection{Intel}
+A Intel surgiu recentemente no mercado de placas de vídeo dedicadas, porém esta tecnologia
+não é novidade para ela. Em sua primeira geração de processadores da linha Core, estes 
+processadores vinham com uma placa de vídeo integrada, porém é capaz de somente atividades
+básicas como vídeos e jogos muito leves.\cite{c16} Já na segunda geração de sua linha Core,
+esta placas de vídeo integradas foram atualizadas para a Intel HD Graphics 3000. \cite{c17}
+Ainda bastante longe de um desempenho de uma placa dedicada de sua mesma geração. Atualmente,
+a intel está na décima terceira geração de seus processadores Core, e possui versões com e
+sem a placa de vídeo integrada. Os processadores que não possuem a placa de integrada têm
+a letra "F" no final de sua descrição, como por exemplo, o Intel Core i9-13900F. A Intel
+possui processadores tanto para computadores de mesa, quando um modelo para notebooks. O
+processador para computador de mesa possuem a placa integrada \emph{Gráficos UHD Intel 770},
+enquanto os processadores de notebook possuem a \emph{Intel Iris Xe}, que são mais potentes.
 
+Indo agora para as placas dedicadas, a Intel chegou a este mercado em 2022, começando pelo
+seu modelo de entrada, a Intel Arc A350M. Em se tratando de placas de vídeo, quando vê-se o
+pós-fixo "M" em um modelo, sabe-se que este é um modelo para notebooks. A Intel começou lançando
+notebooks com a sua placa de vídeo dedicada e depois começou a comercializar suas placas
+voltadas ao computador de mesa. Primeira mente com a Inter ARC A380. Um modelo de entrada que
+não agradou bastante, principalmente pelos grandes problemas iniciais relacionado aos drivers,
+onde os jogos possuíam um desempenho bem abaixo do que a placa conseguia e muita instabilidade.
+Esta placa possui 8 Ray Tracing Units, que infelizmente, devido ao fato da placa já possuir
+um desempenho de entrada, não pode ser aproveitado para o Ray Tracing. Depois de alguns meses,
+a intel finalmente mostrou suas placas que seriam as placas que iriam competir com a NVIDIA e
+a AMD no mercado de placas de vídeo dedicadas intermediárias, as Intel ARC A750 e Intel ARC
+A770. Estas placas possuem 32 Ray Tracing Units, que devido ao fato destas placas possuírem
+um desempenho satisfatório, é possível utilizar esta placa para jogos e simulações com Ray 
+Tracing, desde que não seja em uma resolução maior que 1080p e que preferivelmente a aplicação
+possua suporte ao \emph{XeSS}, a tecnologia da Intel de \emph{Upscaling} de resolução.
+
+Após quase um ano de lançamento, os drivers já estão em um estado satisfatório, onde vários
+problemas foram resolvidos, como o péssimo suporte a versões anteriores do DirectX 12, uma
+API utilizada para a criação de jogos atuais. Seu preço também foi diminuído, o que a torna
+ainda mais competitiva no mercado.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=2.5in]{media/a770.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{A placa de vídeo Intel ARC A770. Modelo de referência.}
+  \label{img_a440}
+\end{figure}
 
 
 \subsection{Consoles}
+A nova geração de consoles também apresenta hardware dedicado ao processamento de Ray Tracing.
+Tanto o Xbox Series S e X da Microsoft, quanto o PlayStation 5 da Sony, utilizam uma placa de
+vídeo dedicada moderna com a capacidade de renderizar com a aceleração de hardware. Os três 
+consoles previamente citados possuem um processador gráfico feito pela AMD. O Xbox Serie X,
+que é o mais potente dos Xbox, e o PlayStation 5 possuem uma placa de vídeo bastante similar.
 
 
 \subsection{Outras}
-
+Com o rápido avanço na tecnologia, já existem chips gráficos para celulares que possuem suporte
+ao Ray Tracing.
 
 
 %Study Settings
 \section{Analisando o Ray Tracing in one Weekend}
+Nessa seção, será discutido o livro \emph{"Ray Tracing in One Weekend"} de Peter Shirley. 
+\cite{Shirley2020RTW1} Será realizada um breve resumo do que cada capítulo do primeiro
+livro da trilogia relata. Ao final, será realizado um teste para mensurar a performance
+do programa. Com isto, pode-se ter uma noção do que cada seção do livro trata. O autor
+encoraja o leitor a escolher outra linguagem que não seja a que ele usa no livro, que no
+caso é o C++, para que o aprendizado seja maior. A análise será feita no código completo
+que está disponível no GitHub \cite{RayTracinOneWeekend-GitHub}, porém, como o código
+pode ser alterado a qualquer momento, foi criado um repositório no GitHub 
+\cite{RayTracinOneWeekend-Artigo} com um fork
+do original, onde a versão utilizada neste artigo estará intacta, e as alterações
+realizadas para realizar os testes e os programas utilizados para criar os gráficos
+também estão presentes, para que o leitor possa reproduzir estes testes de maneira
+mais simples possível. Os comandos utilizados e como rodar o projeto também se 
+encontra no README do projeto.
 
 % Study Results
 \section{Resultados de estudo}
