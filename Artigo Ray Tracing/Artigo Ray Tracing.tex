@@ -29,17 +29,19 @@ Universidade de Brasília}%
 % As a general rule, do not put math, special symbols or citations
 % in the abstract or keywords.
 \begin{abstract}
-  \textcolor{red}{
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec id nisl eros. 
-    Phasellus eleifend nunc mi, nec rutrum purus lacinia sit amet. Vivamus eu 
-    tellus dui. Quisque fringilla nibh nec leo pretium eleifend. Nullam et mi in 
-    tortor laoreet viverra sit amet id ligula. Etiam vel mi a quam fringilla 
-    aliquam. Nulla facilisis pellentesque odio, sit amet iaculis arcu porta 
-    eget. Nunc ut tempor enim. In sit amet rhoncus metus. Sed euismod vulputate 
-    nulla non rutrum. Proin nisl est, blandit accumsan malesuada vel, pharetra a 
-    quam. Nam mollis nunc nisl, in ornare mi hendrerit id. Nullam posuere est 
-    ipsum, ac commodo neque ultrices at.
-  }
+  Ray Tracing is a groundbreaking technique that has revolutionized the field of computer 
+  graphics by enabling the creation of highly realistic images. This article explores the 
+  history and functionality of Ray Tracing, as well as its applications in various forms of 
+  media, including special effects in movies, animations, and video games. It also delves into the support 
+  provided by graphics processing units (GPUs) for Ray Tracing and discusses its impact on 
+  visual quality and user immersion. We talk about the book "Ray Tracing in One Weekend", that is an accessible 
+  introduction to the topic. We provide a detailed summary of this book, which covers the fundamental
+  principles of Ray Tracing and demonstrates how to implement it in a path tracer. Furthermore, we 
+  conduct performance tests on the path tracer implemented to evaluate its efficiency and potential for practical applications.
+  By presenting this article, our aim is to provide readers with a comprehensive understanding of 
+  Ray Tracing, from its historical roots to its contemporary applications. Ultimately, we gain a clear 
+  insight into how this revolutionary technique has shaped the field of computer graphics, opening doors 
+  to increasingly immersive and realistic visual experiences.
 \end{abstract}
 
 
@@ -65,8 +67,11 @@ implementação, para que se possa ter uma ideia das complexidades envolvidas em
 seu algoritmo.
 
 %TODO 
-\textcolor{red}{\textbf{<FALTA> Achados da pesquisa}}
 % Achados da pesquisa
+A pesquisa realizada demonstra a complexidade do Ray Tracer implementado em \emph{Ray
+Tracing in One Weekend}, que fornece uma ótima noção da dificuldade de se renderizar
+uma cena usando esta tecnologia. Por meio desta pesquisa e estudo, procura-se demonstrar
+ao leitor todos os benefícios, como também as desvantagens de se usar um Ray Tracer.
 
 \section{Background}
 
@@ -89,7 +94,7 @@ começou a ser utilizado.
 
 \begin{figure}[!t]
 \centering
-\includegraphics[width=2.5in]{media/mesh.png}
+\includegraphics[width=\linewidth]{media/mesh.png}
 % where an .eps filename suffix will be assumed under latex, 
 % and a .pdf suffix will be assumed for pdflatex; or what has been declared
 % via \DeclareGraphicsExtensions.
@@ -270,7 +275,7 @@ REYES, que foi criada pela Pixar.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=2.5in]{media/carros.png}
+  \includegraphics[width=\linewidth]{media/carros.png}
   % \includegraphics[width=\linewidth]{media/carros.png}
   % where an .eps filename suffix will be assumed under latex, 
   % and a .pdf suffix will be assumed for pdflatex; or what has been declared
@@ -363,7 +368,7 @@ reflexos para serem calculados pelo Ray Tracing.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=2.5in]{media/rtx4090.jpg}
+  \includegraphics[width=\linewidth]{media/rtx4090.jpg}
   % \includegraphics[width=\linewidth]{media/carros.png}
   % where an .eps filename suffix will be assumed under latex, 
   % and a .pdf suffix will be assumed for pdflatex; or what has been declared
@@ -400,7 +405,7 @@ ativado possa ter um desempenho aceitável.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=2.5in]{media/rx7900xtx.png}
+  \includegraphics[width=\linewidth]{media/rx7900xtx.png}
   % where an .eps filename suffix will be assumed under latex, 
   % and a .pdf suffix will be assumed for pdflatex; or what has been declared
   % via \DeclareGraphicsExtensions.
@@ -460,7 +465,7 @@ ainda mais competitiva no mercado.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=2.5in]{media/a770.png}
+  \includegraphics[width=\linewidth]{media/a770.png}
   % where an .eps filename suffix will be assumed under latex, 
   % and a .pdf suffix will be assumed for pdflatex; or what has been declared
   % via \DeclareGraphicsExtensions.
@@ -501,7 +506,7 @@ encontra no README do projeto.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=2.5in]{media/rtiow-final.jpg}
+  \includegraphics[width=\linewidth]{media/rtiow-final.jpg}
   % where an .eps filename suffix will be assumed under latex, 
   % and a .pdf suffix will be assumed for pdflatex; or what has been declared
   % via \DeclareGraphicsExtensions.
@@ -669,11 +674,12 @@ O outro computador usado para os testes é um notebook com configurações infer
 Após o estudo dos resultados adquiridos, foi possível chegar a algumas conclusões a respeito
 da performance da aplicação. O gráfico a seguir demonstra o tempo necessário para renderizar
 uma imagem para cada resolução. Foram escolhidas as resoluções padrões utilizadas. É possível
-notar o aumento do tempo de acordo com o aumento da resolução. 
+notar o aumento do tempo de acordo com o aumento da resolução. Serão mostrados os valores obtidos
+nos teste para o primeiro computador citado.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=2.5in]{media/Desktop_RES.png}
+  \includegraphics[width=\linewidth]{media/Desktop_RES.png}
   % where an .eps filename suffix will be assumed under latex, 
   % and a .pdf suffix will be assumed for pdflatex; or what has been declared
   % via \DeclareGraphicsExtensions.
@@ -681,12 +687,12 @@ notar o aumento do tempo de acordo com o aumento da resolução.
   \label{img_desktop_res}
 \end{figure}
 
-Ao analisarmos este gráfico, há a impressão de que a complexidade deste parâmetro seja exponencial.
-Porém, deve-se notar que as resoluções não crescem linearmente, como é mostrado na imagem a seguir.
+Ao analisarmos o gráfico da imagem \ref{img_desktop_res}, há a impressão de que a complexidade deste parâmetro seja exponencial.
+Porém, deve-se notar que as resoluções não crescem linearmente, como é mostrado na imagem \ref{img_resolutions}.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=2.5in]{media/resolutions.png}
+  \includegraphics[width=\linewidth]{media/resolutions.png}
   % where an .eps filename suffix will be assumed under latex, 
   % and a .pdf suffix will be assumed for pdflatex; or what has been declared
   % via \DeclareGraphicsExtensions.
@@ -706,13 +712,13 @@ linear.
 Outro fator que influencia a performance do Path Tracer é a amostra por pixel, que no programa é chamada
 de \emph{Samples Per Pixel}. Este parâmetro determina quantos vetores sairão de cada pixel da câmera. Já é
 possível deduzir que a performance até aqui pode ser calculada como número de amostras por pixel vezes o
-número de pixeis da resolução. Aqui já é possível ter uma noção de como este algoritmo é custoso. A seguir,
-um gráfico mostrando o tempo de renderização necessário por amostragem. Foi utilizado uma profundidade
+número de pixeis da resolução. Aqui já é possível ter uma noção de como este algoritmo é custoso. O gráfico na imagem 
+\ref{img_desktop_spp} mostra o tempo de renderização necessário pela amostragem. Foi utilizado uma profundidade
 máxima de 50 e a resolução nesta execução foi de 640 x 360, o que resulta em 230.400 pixeis.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=2.5in]{media/Desktop_SPP.png}
+  \includegraphics[width=\linewidth]{media/Desktop_SPP.png}
   % where an .eps filename suffix will be assumed under latex, 
   % and a .pdf suffix will be assumed for pdflatex; or what has been declared
   % via \DeclareGraphicsExtensions.
@@ -723,13 +729,108 @@ máxima de 50 e a resolução nesta execução foi de 640 x 360, o que resulta e
 Por fim, foi realizado um teste no parâmetro de profundidade máxima. Este valor determina o tamanho máximo
 do vetor que foi traçado. Este fator determina quantas vezes um vetor irá refletir caso sempre encontre algum
 objeto na cena, o que pode ser custoso com o tempo e pode acarretar em estoura da pilha caso a profundidade
-foi muito grande, como mencionado pelo autor do livro. 
- 
-\subsection*{Discussões}
-\subsection*{Limitações}
+foi muito grande, como mencionado pelo autor do livro. Primeiro, o programa foi executado cinco vezes, com
+10 amostras por pixel na resolução 640 x 360, e o resultado obtido foi adicionado no gráfico \ref{img_desktop_md1}.
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{media/Desktop_MD_1SPP.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Tempo de renderização por profundidade máxima.}
+  \label{img_desktop_md1}
+\end{figure}
+
+Após a aquisição destes dados, não foi possível concluir nada concreto, pois durante os testes, um dos gráficos
+deste parâmetro estava mostrando valores dispersos em torno de um valor constante, e neste gráfico ele aparentava
+estar em constante crescimento. Por este motivo, foi gerado outro teste para este parâmetro. Este teste foi realizado
+com a amostragem por pixel em 1, o que também gerou certa desconfiança em relação ao resultado. A amostragem foi 
+aumentada para 10 e foram realizadas 10 renderizações com o valor de profundidade crescente de cinco em cinco.
+O resultado está demonstrado na imagem \ref{img_desktop_md2}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{media/Desktop_MD_10SPP_10x.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Tempo de renderização por profundidade máxima.}
+  \label{img_desktop_md2}
+\end{figure}
+
+Com este último gráfico, foi possível perceber o comportamento da profundidade máxima. Pode-se notar quem, com o 
+crescimento da profundidade, também cresce sua complexidade, porém ele estabiliza em torno de um valor depois de
+um certo valor de profundidade. Pode-se dizer que este parâmetro irá depender da cena que está sendo renderizada,
+ois em uma cena aberta como a que foi gerada, muitos raios irão dispersar para o infinito, o que gerou um equilíbrio
+no sistema.
+
+\section{Resultado do estudo}
+Com estes dados adquiridos, pode-se concluir que a complexidade do Path Tracer implementado. Este artigo conclui que
+sua complexidade é: $O(N \cdot S \cdot D)$, onde $N$ representa o número de pixels na imagem, ou seja, a resolução,
+$S$ representa o número de amostras por pixel e $D$ representa a profundidade de recursão que cada raio irá percorrer
+até parar.
+
+A seguir, estão outros testes realizados em outro computador para análise.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{media/Notebook_RES.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Tempo de renderização pela resolução realizado no segundo computador.}
+  \label{img_notebook_res}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{media/Notebook_MD.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Tempo de renderização pela profundidade máxima realizado no segundo computador.}
+  \label{img_notebook_md}
+\end{figure}
+
+
+\subsection*{Discussões}
+
+\subsection*{Limitações}
+Estes testes visam demonstrar a performance do Path Tracer implementado no livro \emph{Ray Tracing in One Weekend}.
+Esta implementação, mesmo sendo bastante compreensiva e abordar vários tópicos atuais de computação gráfica, e que
+são usados atualmente pela indústria, ainda é uma implementação didática. A performance calculada neste artigo
+pode não refletir a real performance de um Ray Tracer em grandes aplicações, como jogos. Isto se deve ao fato de que
+a primeira parte da trilogia que está sendo englobada pelo \emph{Ray Tracing in One Weekend} não chega a abordar
+a implementação de otimizações, como o uso de \emph{Bounding Volume Hierarchy}, que melhora bastante a performance.
+
+Outro fator é que o Path Tracer implementado é executado pelo processador, e não pela GPU, que como discutido anteriormente,
+faria estes cálculos bem mais rápido, principalmente se utilizar as novas placas de vídeo com suporte nativo
+ao Ray Tracing.
 
 \section{Conclusão}
+Este artigo tem como objetivo explorar o Ray Tracing e mostrar ao leitor o estado da arte desta técnica, abordando
+sua história, funcionamento e aplicações na indústria de cinema e jogos. Também foi mostrado como as placas de vídeo
+estão acompanhando esta tecnologia, dando suporte nativo direto do hardware e vários programas que suas empresas
+estão fazendo, como os algoritmos de \emph{Upscaling}, e foi finalizado com um resumo do livro \emph{"Ray Tracing in
+One Weekend"} escrito por Peter Shirley. E como adicional, foi realizado um teste de performance para complementar
+o estudo e poder entender melhor seu desempenho. O artigo conclui que a complexidade deste Path Tracer foi 
+$O(N \cdot S \cdot D)$, onde $N$ representa o número de pixels na imagem, ou seja, a resolução, $S$ representa o 
+número de amostras por pixel e $D$ representa a profundidade de recursão que cada raio irá percorrer até parar.
+Esta complexidade demonstra os desafios enfrentados por um renderizador e pelo programador, para conseguir
+renderizar imagens realistas com alta resolução. É importante destacar que o Ray Tracing e o Path Tracing estão
+sempre em avanço tecnológico, tanto em software com novos métodos, quanto em hardware com novos chips especializados
+nesta tarefa, o que já está tornando viável o uso desta tecnologia em aplicações em tempo real, transformando
+as experiências visuais e tornando-as cada vez mais imersivas. Tento o futuro do Ray Tracing em vista, cenas cada
+vez mais indistinguíveis da realidade se tornaram realidade, onde a combinação com outras tecnologias que também
+estão em ascensão, como a Inteligência Artificial e simulações físicas, novas portas estão se abrindo para
+novos tipos de simulações e mundos virtuais.
+
+Este artigo mostrou o mundo do Ray Tracing e como o leitor pode começar a estudar mais sobre o tema. Para continuar
+os estudos, pode-se por exemplo, continuar com as implementações da trilogia de Peter Shirley e ser implementado
+os livros \emph{"Ray Tracing The Next Week"} e o \emph{"Ray Tracing the Rest of Your Life}, onde outras várias 
+técnicas são ensinadas sobre esta tecnologia. Realizar o estudo de desempenho destes livros também é uma oportunidade
+para se aprofundar neste tópico.
 
 \bibliographystyle{IEEEtran}
 \bibliography{bibtex/bib/reference}
