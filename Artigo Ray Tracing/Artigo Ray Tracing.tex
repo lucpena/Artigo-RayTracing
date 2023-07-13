@@ -548,6 +548,16 @@ atinja nenhuma entidade na cena, que neste caso representa o céu com um gradien
 o resultado. Deve-se obter uma imagem contendo o gradiente definido anteriormente, devido ao fato
 da cena ainda não conter nenhum objeto.
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{media/img-1.02-blue-to-white.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Imagem gerada ao final do Capítulo 4. Um gradiente de azul para o branco representando o céu.}
+  \label{img_blue_grad}
+\end{figure}
+
 \subsection*{Capítulo 5: \emph{Adding a Sphere}}
 Ao final deste capítulo, será possível adicionar o primeiro objeto à cena: uma esfera. A escolha da esfera
 tem uma rasão. A equação de interseção da reta com a esfera é bem direta, o que reduz a complexidade do
@@ -556,6 +566,16 @@ programa. Após o autor demonstrar como a matemática funciona, fornece ao leito
 uma imagem contendo uma esfera no meio. Nota-se que a esfera não tem aparência de um objeto 3D. Isto se deve
 ao fato que ainda não foi implementado a iluminação, que é o principal fator que nos dá a impressão da cena 
 em que estamos vendo é uma representação de três dimensões.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{media/img-1.03-red-sphere.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Imagem gerada ao final do Capítulo 5. Uma esfera vermelha.}
+  \label{img_red_sphere}
+\end{figure}
 
 \subsection*{Capítulo 6: \emph{Surface Normals and Multiple Objects}}
 Nesta seção, o autor aborda a importância das normais de superfície na renderização realista. Primeiro é
@@ -569,6 +589,17 @@ Ao final, após adicionar outra esfera para representar o chão, traça-se os ra
 Com uma função definida previamente neste capítulo que determina a cor do objeto de acordo com sua normal,
 tem-se agora uma bola colorida que já é possível perceber que trata-se de um objeto em três dimensões.
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{media/img-1.05-normals-sphere-ground.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Imagem gerada ao final do Capítulo 6. Uma esfera colorida de acordo com suas normais e outra
+  esfera grande representando o chão.}
+  \label{img_sphere_normals}
+\end{figure}
+
 \subsection*{Capítulo 7: \emph{Antialiasing}}
 Observa-se que a imagem gerada não apresenta uma esfera perfeitamente redonda, é possível notar um serrilhado
 em seu contorno. Para resolver este artefato, utiliza-se alguma das técnicas de Antialiasing. Este problema
@@ -577,6 +608,17 @@ sua cor. Neste Path Tracer, o problema será solucionado traçando mais de um ra
 definida por este pixel seja mais precisa, fazendo uma média das cores obtidas pelos raios. O autor também
 demostra uma função para gerar números aleatório que será útil para o programa. Após as alterações no programa
 e na câmera, tem-se a imagem final da esfera com suas bordas suavizadas.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{media/img-1.06-antialias-before-after.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Imagem gerada ao final do Capítulo 7. Exemplo de Antialiasing.}
+  \label{img_aa}
+\end{figure}
+
 
 \subsection*{Capítulo 8: \emph{Diffuse Materials}}
 Este capítulo discute a diferença entre a geometria dos objetos e seus materiais. O autor questiona se é
@@ -591,11 +633,34 @@ armazenada. O autor também demonstra uma maneira de resolver um problema e melh
 esfera. Ao final, Peter apresenta o método da dispersão hemisférica, que é um método alternativo de 
 representar objetos difusos.
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{media/img-1.10-rand-hemispherical.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Imagem gerada ao final do Capítulo 8. Esfera difusa.}
+  \label{img_difuse}
+\end{figure}
+
+
 \subsection*{Capítulo 9: \emph{Metal}}
 Este capítulo introduz o conceito de materiais metálicos, que possuem uma fator alto de reflexão. O fato
 destes materiais terem uma propriedade de reflexão especulas o difere dos outros. O material metálico
 irá refletir a luz de maneira ordenada e precisa, criando reflexões nítidas e brilhantes. O autor demonstra
 o funcionamento deste tipo de material e o adiciona ao código principal.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{media/img-1.12-metal-fuzz.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Imagem gerada ao final do Capítulo 9. Esfera metálica à esquerda e outra um pouco mais \
+  áspera à direita.}
+  \label{img_metal}
+\end{figure}
+
 
 \subsection*{Capítulo 10: \emph{Dielectrics}}
 Materiais dielétricos são materiais como a água, vidro e diamantes. Este tipo de material é um dos materiais
@@ -606,10 +671,32 @@ interna total. O autor trata deste problema e demonstra formas de resolvê-lo. P
 de aproximação de Schlick, que modela a variação do reflectividade do vidro de acordo com o ângulo de incidência.
 Ao final, uma esfera com refração é adicionada à cena, junto de outra metálica.
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{media/img-1.16-glass-hollow.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Imagem gerada ao final do Capítulo 10. Esfera de vidro à esquerda demonstrando a refração.}
+  \label{img_dieletric}
+\end{figure}
+
 \subsection*{Capítulo 11: \emph{Positionable Camera}}
 Neste capítulo, o autor foca em dar mais funcionalidade para a câmera, onde é possível alterar sua posição,
 sua orientação e seu ângulo de visão. Com isso é possível gerar cenas a partir de pontos de visão diferentes
 e com aproximações diferentes, através da alteração do ângulo de visão.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{media/img-1.19-view-zoom.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Imagem gerada ao final do Capítulo 11. Câmera em um novo local com zoom atraveś do
+  ângulo de visão.}
+  \label{img_cam}
+\end{figure}
+
 
 \subsection*{Capítulo 12: \emph{Defocus Blur}}
 Um dos efeitos utilizados para simular a visão humana ou de câmeras focais é a profundidade de campo, onde
@@ -619,11 +706,22 @@ Para gerar o efeito final que será adicionado ao Path Tracer, o autor implement
 uma lente fina, que é a mais utilizada em computação gráfica para este efeito. Ajustando a distância do foco
 e a abertura da lente é possível ajustar o efeito.
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{media/img-1.20-depth-of-field.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Imagem gerada ao final do Capítulo 12. Profundidade de campo.}
+  \label{img_dof}
+\end{figure}
+
 \subsection*{Capítulo 13: \emph{Where Next?}}
 Esta seção são as considerações finais do autor. Ele demonstra como reproduzir a imagem da capa do livro, que
 está representada pela figura \ref{img_rtiow_final}, e sugere trabalhos futuros como implementar luz, adicionar
 a equação de interseção de triângulos, já que quase todos os modelos 3D hoje em dia são baseados em triângulos,
 adicionar texturas, adicionar modelos com volume e implementar este programa utilizando paralelismo.
+Ao final deste capítulo, é gerada a imagem da capa do livro que está representada em \ref{img_rtiow_final}.
 
 \section{Analisando o Ray Tracing in One Weekend}
 Ao chegar ao final da implementação deste Path Tracer, pode-se ter o questionamento de como a performance
