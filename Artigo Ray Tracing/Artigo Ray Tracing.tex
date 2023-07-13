@@ -384,7 +384,7 @@ de chips está presente nas placas da série RX 6000, a partir da placa RX 6600.
 a placa mais potente da AMD é a RX 6950 XT, que possui 80 Ray Accelerators dedicado a
 cálculos relacionados ao Ray Tracing. Em 2022, a AMD anunciou a arquitetura RDNA 3 para
 suas novas placas de vídeo da série RX 7000. Durante o desenvolvimento deste artigo,
-tem-se que a placa mais potente da AMD é a RX 7900 XTX, possuindo 96 Ray Accelerators.
+tem-se que a placa mais potente da AMD é a RX 7900 XT X, possuindo 96 Ray Accelerators.
 
 A AMD também possui tecnologias que auxiliam na renderização, tanto na rasterização comum,
 quanto no uso do Ray Tracing, o \emph{FidelityFX Super Resolution}, ou como é mais conhecido,
@@ -666,7 +666,65 @@ O outro computador usado para os testes é um notebook com configurações infer
 % \subsection*{Coletando Dados}
 
 \subsection{Resultados de Pesquisa}
+Após o estudo dos resultados adquiridos, foi possível chegar a algumas conclusões a respeito
+da performance da aplicação. O gráfico a seguir demonstra o tempo necessário para renderizar
+uma imagem para cada resolução. Foram escolhidas as resoluções padrões utilizadas. É possível
+notar o aumento do tempo de acordo com o aumento da resolução. 
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=2.5in]{media/Desktop_RES.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Tempo de Renderização pela resolução.}
+  \label{img_desktop_res}
+\end{figure}
+
+Ao analisarmos este gráfico, há a impressão de que a complexidade deste parâmetro seja exponencial.
+Porém, deve-se notar que as resoluções não crescem linearmente, como é mostrado na imagem a seguir.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=2.5in]{media/resolutions.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Relação entre as resoluções mais utilizadas no mercado.}
+  \label{img_resolutions}
+\end{figure}
+
+Levando isto em consideração, pode-se calcular a diferença entre as duas maiores resoluções, por exemplo.
+Tem-se que a resolução 1920 x 1080 são 2.073.600 pixeis, enquanto a resolução 2560 x 1440 são 3.686.400
+pixeis. Dividindo uma pela outra, temos a relação de 1,7778 vezes maior que a outra. Pegando o tempo
+obtido para 1920 x 1080, temos 35,5641 segundos. Multiplicando este valor pela razão 1,7779 obtida 
+anteriormente, obtemos 63,2258, um valor praticamente igual ao de 63,2733 obtido no teste. A diferença pode
+ser considerada como margem de erro, ainda mais em se tratando de um sistema aleatório. Com isso, pode-se
+considerar que o impacto da resolução no Path Tracer que foi implementado, se aproxima da complexidade
+linear.
+
+Outro fator que influencia a performance do Path Tracer é a amostra por pixel, que no programa é chamada
+de \emph{Samples Per Pixel}. Este parâmetro determina quantos vetores sairão de cada pixel da câmera. Já é
+possível deduzir que a performance até aqui pode ser calculada como número de amostras por pixel vezes o
+número de pixeis da resolução. Aqui já é possível ter uma noção de como este algoritmo é custoso. A seguir,
+um gráfico mostrando o tempo de renderização necessário por amostragem. Foi utilizado uma profundidade
+máxima de 50 e a resolução nesta execução foi de 640 x 360, o que resulta em 230.400 pixeis.
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=2.5in]{media/Desktop_SPP.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Tempo de renderização por amostras por pixel.}
+  \label{img_desktop_spp}
+\end{figure}
+
+Por fim, foi realizado um teste no parâmetro de profundidade máxima. Este valor determina o tamanho máximo
+do vetor que foi traçado. Este fator determina quantas vezes um vetor irá refletir caso sempre encontre algum
+objeto na cena, o que pode ser custoso com o tempo e pode acarretar em estoura da pilha caso a profundidade
+foi muito grande, como mencionado pelo autor do livro. 
+ 
 \subsection*{Discussões}
 \subsection*{Limitações}
 
