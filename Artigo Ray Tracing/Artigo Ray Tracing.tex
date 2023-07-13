@@ -474,19 +474,40 @@ ainda mais competitiva no mercado.
 \end{figure}
 
 
-\subsection{\textcolor{red}{\textbf{Consoles <TERMINAR>}}}
-% \subsection{Consoles}
+% \subsection{\textcolor{red}{\textbf{Consoles <TERMINAR>}}}
+\subsection{Consoles}
 A nova geração de consoles também apresenta hardware dedicado ao processamento de Ray Tracing.
 Tanto o Xbox Series S e X da Microsoft, quanto o PlayStation 5 da Sony, utilizam uma placa de
 vídeo dedicada moderna com a capacidade de renderizar com a aceleração de hardware. Os três 
 consoles previamente citados possuem um processador gráfico feito pela AMD. O Xbox Serie X,
 que é o mais potente dos Xbox, e o PlayStation 5 possuem uma placa de vídeo bastante similar.
+Os dois consoles fizeram uma parceria com a AMD, onde ela criou um \emph{System on a Chip},
+ou SoC, para cada. Os dois são baseados na arquitetura RDNA 2 da AMD, mas cada um possui
+modificações diferentes que cada empresa requisitou. Durante o desenvolvimento deste artigo,
+não foi encontrado nada sobre estes chips que determine quanto de seu poder é dedicado
+ao Ray Tracing. Entretanto, há uma maneira de estimar. Ao checar as especificações da GPU
+do PlayStaion 5 \cite{PS5Specs}, ela possui as mesmas especificações da placa RX 6700 
+\cite{RX6700Specs}, que é uma placa dedicada da AMD. A placa de vídeo do Xbox Series X 
+possui especificações melhores, porém não chegam a ser do mesmo nível da RX 6800. A RX 6700 
+possui 36 RT Cores. Então acredita-se que o PlayStation 5 e o Xbox Series X possuam a mesma 
+quantidade ou uma quantidade semelhante.
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{media/ps5_ray.jpg}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Como o PlayStation 5 se beneficia com o uso do Ray Tracing.}
+  \label{img_ps5_ray}
+\end{figure}
 
-\subsection{\textcolor{red}{\textbf{Outras <TERMINAR>}}}
-% \subsection{Outras}
+% \subsection{\textcolor{red}{\textbf{Outras <TERMINAR>}}}
+\subsection{Outras}
 Com o rápido avanço na tecnologia, já existem chips gráficos para celulares que possuem suporte
-ao Ray Tracing.
+ao Ray Tracing. Em 2022, a Qualcomm revelou o seu SoC Snapdragon 8 Gen 2 que possui suporte
+nativo ao Ray Tracing. A GPU, que se chama Areno, possui suporte acelerado por hardware em
+tempo real, além de ser a primeira GPU mobile com suporte à API Vulkan 1.3.
 
 
 %Study Settings
@@ -867,7 +888,9 @@ no sistema.
 Com estes dados adquiridos, pode-se concluir que a complexidade do Path Tracer implementado. Este artigo conclui que
 sua complexidade é: $O(N \cdot S \cdot D)$, onde $N$ representa o número de pixels na imagem, ou seja, a resolução,
 $S$ representa o número de amostras por pixel e $D$ representa a profundidade de recursão que cada raio irá percorrer
-até parar.
+até parar. Vale ressaltar que o desempenho de um Ray Tracer com as devidas otimizações, pode chegar a ser
+$O( log N  )$ \cite{c18}.
+
 
 A seguir, estão outros testes realizados em outro computador para análise.
 
@@ -891,8 +914,20 @@ A seguir, estão outros testes realizados em outro computador para análise.
   \label{img_notebook_md}
 \end{figure}
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=\linewidth]{media/Notebook_SPP.png}
+  % where an .eps filename suffix will be assumed under latex, 
+  % and a .pdf suffix will be assumed for pdflatex; or what has been declared
+  % via \DeclareGraphicsExtensions.
+  \caption{Tempo de renderização pela amostras por pixel realizado no segundo computador.}
+  \label{img_notebook_spp}
+\end{figure}
 
 \subsection*{Discussões}
+No geral, este artigo visa um entendimento mais aprofundado do livro \emph{"Ray Tracing in One Weekend"}.
+Nota-se que o resultado encontrado nesta seção de análise está de acordo com a performance e a complexidade
+assintótica de um Ray Tracer. 
 
 \subsection*{Limitações}
 Estes testes visam demonstrar a performance do Path Tracer implementado no livro \emph{Ray Tracing in One Weekend}.
@@ -919,7 +954,7 @@ Esta complexidade demonstra os desafios enfrentados por um renderizador e pelo p
 renderizar imagens realistas com alta resolução. É importante destacar que o Ray Tracing e o Path Tracing estão
 sempre em avanço tecnológico, tanto em software com novos métodos, quanto em hardware com novos chips especializados
 nesta tarefa, o que já está tornando viável o uso desta tecnologia em aplicações em tempo real, transformando
-as experiências visuais e tornando-as cada vez mais imersivas. Tento o futuro do Ray Tracing em vista, cenas cada
+as experiências visuais e tornando-as cada vez mais imersivas. Visando o futuro do Ray Tracing, cenas cada
 vez mais indistinguíveis da realidade se tornaram realidade, onde a combinação com outras tecnologias que também
 estão em ascensão, como a Inteligência Artificial e simulações físicas, novas portas estão se abrindo para
 novos tipos de simulações e mundos virtuais.
